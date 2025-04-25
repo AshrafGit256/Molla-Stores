@@ -434,6 +434,56 @@ footer {
   background-color: #219653;
 }
 
+/* ✅ Responsive styles */
+@media (max-width: 768px) {
+  .cart-table thead {
+    display: none;
+  }
+
+  .cart-table, .cart-table tbody, .cart-table tr, .cart-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .cart-table tr {
+    margin-bottom: 2rem;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+
+  .cart-table td {
+    text-align: right;
+    padding: 0.5rem 1rem;
+    position: relative;
+  }
+
+  .cart-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 1rem;
+    top: 0.5rem;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .cart-product {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cart-product img {
+    width: 100%;
+    max-width: 100px;
+    margin-bottom: 0.5rem;
+  }
+
+  .cart-summary {
+    text-align: center;
+  }
+}
+
 
 /* Styles for the checkout page */
 /* General Styles */

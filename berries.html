@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Berries — MollaStore</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css"/>
+</head>
+<body>
+
+  <header>
+    <div class="container nav-bar">
+      <h1 class="logo-text">MollaStores</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Fruits</a>
+        <a href="cart.html">Cart</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="products">
+    <h1>Explore Our Fresh Berries 🍇🍓</h1>
+
+    <div class="filters">
+      <a href="products.html" class="filter">All</a>
+      <a href="citrus.html" class="filter">Citrus</a>
+      <a href="berries.html" class="filter active">Berries</a>
+      <a href="tropical.html" class="filter">Tropical</a>
+      <a href="organic.html" class="filter">Organic</a>
+    </div>
+
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="assets/strawberries.jpg" alt="Strawberries">
+        <div class="badge organic">Organic</div>
+        <h3>Fresh Strawberries</h3>
+        <p class="price">UGX 10,000 /box</p>
+        <p class="category">Category: Berries</p>
+        <p class="description">Organically grown, chemical-free strawberries with intense natural sweetness. Ideal for dessert toppings and smoothies.</p>
+        <p class="stock out">Out of Stock</p>
+        <div class="stock-bar"><div style="width: 0%"></div></div>
+        <button class="btn-cart disabled" disabled>Out of Stock</button>
+      </div>
+
+      <div class="product-card">
+        <img src="assets/grapes.jpg" alt="Red Grapes">
+        <div class="badge">NEW</div>
+        <h3>Red Grapes</h3>
+        <p class="price">UGX 8,000 /kg</p>
+        <p class="category">Category: Berries</p>
+        <p class="description">Seedless and sweet. Perfect for lunch boxes, fruit salads, and fresh snacking.</p>
+        <p class="stock in">In Stock: 18kg</p>
+        <div class="stock-bar"><div style="width: 45%"></div></div>
+        <button class="btn-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="assets/blueberries.jpg" alt="Blueberries">
+        <div class="badge">HOT</div>
+        <h3>Blueberries</h3>
+        <p class="price">UGX 15,000 /box</p>
+        <p class="category">Category: Berries</p>
+        <p class="description">Rich in antioxidants, these fresh blueberries are great for baking, breakfast bowls, and boosting immunity.</p>
+        <p class="stock in">In Stock: 10 boxes</p>
+        <div class="stock-bar"><div style="width: 30%"></div></div>
+        <button class="btn-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="assets/blackberries.jpg" alt="Blackberries">
+        <h3>Juicy Blackberries</h3>
+        <p class="price">UGX 13,000 /box</p>
+        <p class="category">Category: Berries</p>
+        <p class="description">Handpicked, bold flavor, and full of nutrients. Great for jams, sauces, and desserts.</p>
+        <p class="stock in">In Stock: 12 boxes</p>
+        <div class="stock-bar"><div style="width: 35%"></div></div>
+        <button class="btn-cart">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="recommend">
+    <h2>Similar Picks You May Like</h2>
+    <div class="recommend-grid">
+      <img src="assets/img8.jpg" alt="Raspberries">
+      <img src="assets/img9.jpg" alt="Cherry Mix">
+      <img src="assets/img7.jpg" alt="Apple Slices">
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 MollaStore. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fruits — MollaStore</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css"/>
+</head>
+<body>
+
+  <header>
+    <div class="container nav-bar">
+      <h1 class="logo-text">MollaStores</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html" class="active">Fruits</a>
+        <a href="cart.html">Cart</a>
+        <a href="about.html">About</a>
+
+      </nav>
+    </div>
+  </header>
+
+  <section class="products">
+    <h1>Fresh Fruits for You 🍓</h1>
+
+    <div class="filters">
+      <a href="products.html" class="filter active">All</a>
+      <a href="citrus.html" class="filter">Citrus</a>
+      <a href="berries.html" class="filter">Berries</a>
+      <a href="tropical.html" class="filter">Tropical</a>
+      <a href="organic.html" class="filter">Organic</a>
+    </div>
+
+    <div class="product-grid">
+      <!-- Repeat this block for multiple products -->
+      <div class="product-card">
+        <img src="assets/mangoes.jpg" alt="Mango">
+        <div class="badge">NEW</div>
+        <h3>Sweet Mangoes</h3>
+        <p class="price">UGX 7,000 /kg</p>
+        <p class="category">Category: Tropical</p>
+        <p class="description">Freshly picked, juicy and naturally ripened mangoes.</p>
+        <p class="stock in">In Stock: 32kg</p>
+        <div class="stock-bar"><div style="width: 80%"></div></div>
+        <button class="btn-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="assets/img1.jpg" alt="Oranges">
+        <div class="badge hot">HOT</div>
+        <h3>Juicy Oranges</h3>
+        <p class="price"><del>UGX 5,000</del> UGX 4,500 /kg</p>
+        <p class="category">Category: Citrus</p>
+        <p class="description">Rich in Vitamin C. Great for juice and snacks.</p>
+        <p class="stock in">In Stock: 20kg</p>
+        <div class="stock-bar"><div style="width: 60%"></div></div>
+        <button class="btn-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="assets/blackberries.jpg" alt="Strawberries">
+        <div class="badge organic">Organic</div>
+        <h3>Fresh Strawberries</h3>
+        <p class="price">UGX 10,000 /box</p>
+        <p class="category">Category: Berries</p>
+        <p class="description">Sweet organic strawberries. No chemicals added.</p>
+        <p class="stock out">Out of Stock</p>
+        <div class="stock-bar"><div style="width: 0%"></div></div>
+        <button class="btn-cart disabled" disabled>Out of Stock</button>
+      </div>
+
+      <!-- Additional products -->
+      <div class="product-card">
+        <img src="assets/img3.jpg" alt="Bananas">
+        <h3>Ripe Bananas</h3>
+        <p class="price">UGX 3,500 /kg</p>
+        <p class="category">Category: Tropical</p>
+        <p class="description">Perfect for snacks, baking, or smoothies.</p>
+        <p class="stock in">In Stock: 50kg</p>
+        <div class="stock-bar"><div style="width: 90%"></div></div>
+        <button class="btn-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="assets/grapes.jpg" alt="Grapes">
+        <h3>Red Grapes</h3>
+        <p class="price">UGX 8,000 /kg</p>
+        <p class="category">Category: Berries</p>
+        <p class="description">Crisp and juicy grapes. Great for dessert.</p>
+        <p class="stock in">In Stock: 18kg</p>
+        <div class="stock-bar"><div style="width: 45%"></div></div>
+        <button class="btn-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="assets/pineapple.jpg" alt="Pineapple">
+        <h3>Sweet Pineapple</h3>
+        <p class="price">UGX 6,000 /each</p>
+        <p class="category">Category: Tropical</p>
+        <p class="description">Zesty and juicy pineapple. Locally grown.</p>
+        <p class="stock in">In Stock: 25 pcs</p>
+        <div class="stock-bar"><div style="width: 70%"></div></div>
+        <button class="btn-cart">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="recommend">
+    <h2>You May Also Like</h2>
+    <div class="recommend-grid">
+      <img src="assets/img7.jpg" alt="Apples">
+      <img src="assets/img8.jpg" alt="Avocados">
+      <img src="assets/img9.jpg" alt="Lemons">
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 MollaStore. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,262 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  overflow: hidden;
+}
+
+/* Header */
+.hero-header {
+  background-image: url('assets/mangoes.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 90vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #333;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.testimonial-card {
+  background-color: #fff;
+  padding: 20px;
+  margin: 15px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+}
+
+.testimonial-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.footer-content {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  background-color: #3d4b5e;
+}
+
+
+.hero-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.hero-header p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  background-color: #0d6efd;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #0046d2;
+}
+
+/* Features Section */
+.features-section {
+  padding: 40px 0;
+  background-color: #f4f4f4;
+}
+
+.features .feature-card {
+  text-align: center;
+  flex: 1;
+  margin: 20px;
+}
+
+.features .feature-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.features .feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.features .feature-card p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Products Section */
+.popular-products {
+  padding: 40px 0;
+}
+
+.popular-products h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.product-card {
+  width: 250px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-radius: 10px;
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.product-card h4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.product-card p {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #28a745;
+}
+
+.btn-secondary {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: #218838;
+}
+
+/* Testimonial Section */
+.testimonial-section {
+  background-color: #f9f9f9;
+  padding: 40px 0;
+}
+
+.testimonials {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.testimonial-card p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.testimonial-card span {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Footer */
+footer {
+  background-color: #333333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+footer p {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .hero-header h2 {
+    font-size: 2rem;
+  }
+
+  .hero-header p {
+    font-size: 1rem;
+  }
+
+  .product-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .features {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .features .feature-card {
+    margin: 10px 0;
+  }
+
+  .testimonials {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .testimonial-card {
+    margin-bottom: 20px;
+  }
+}

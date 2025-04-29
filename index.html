@@ -3,49 +3,103 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MollaStore</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="main.css"/>
+  <title>MollaStore — Fresh Fruit Online</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-  <header>
+  <!-- Hero Section -->
+  <header class="hero-header">
     <div class="container nav-bar">
-      <h1 class="logo-text">MollaStores</h1>
+      <h1 class="logo-text">MollaStore</h1>
       <nav>
-        <a href="index.html">Home</a>
-        <a href="products.html" class="active">Fruits</a>
+        <a href="index.html" class="active">Home</a>
+        <a href="products.html">Fruits</a>
         <a href="cart.html">Cart</a>
         <a href="about.html">About</a>
-
       </nav>
+    </div>
+    <div class="hero-content">
+      <h2>Enjoy Nature's Sweetest Gifts 🍓</h2>
+      <p>Shop premium fruits online — fresh, organic, and affordable.</p>
+      <a href="products.html" class="btn-primary">Browse Fruits</a>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Welcome to <span>MollaStore</span></h1>
-      <a href="products.html" class="btn">Start Shopping</a>
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="container features">
+      <div class="feature-card">
+        <img src="assets/purifier.png" alt="Freshly Picked" />
+        <h3>Freshly Picked</h3>
+        <p>From farm to table — taste the real meaning of freshness every day.</p>
+      </div>
+      <div class="feature-card">
+        <img src="assets/shipping.png" alt="Fast Delivery" />
+        <h3>Same-Day Delivery</h3>
+        <p>Speedy deliveries across Uganda — freshness guaranteed.</p>
+      </div>
+      <div class="feature-card">
+        <img src="assets/package.png" alt="Eco Friendly" />
+        <h3>Eco Packaging</h3>
+        <p>Good for fruits, better for Earth — no plastics, just love.</p>
+      </div>
     </div>
   </section>
 
-  <section class="gallery">
-    <h2>Popular Picks</h2>
-    <div class="image-grid">
-      <!-- Load all 20 images -->
-      <!-- Repeat this for img1 to img20 -->
-      <!-- I’ll show just a few, you complete up to img20 -->
-      <img src="assets/img1.jpg" alt="Product 1">
-      <img src="assets/img2.jpg" alt="Product 2">
-      <img src="assets/img3.jpg" alt="Product 3">
-      <img src="assets/img4.jpg" alt="Product 4">
-      <img src="assets/img5.jpg" alt="Product 5">
-      <!-- Add until img20.jpg -->
+  <!-- Popular Products Section -->
+  <section class="popular-products">
+    <h2 class="section-title">Trending Fruits This Week 🍍</h2>
+    <div class="container product-grid">
+      <div class="product-card">
+        <img src="assets/mangoes.jpg" alt="Golden Mangoes" />
+        <h4>Golden Mangoes</h4>
+        <p>UGX 3,000 /kg</p>
+      </div>
+      <div class="product-card">
+        <img src="assets/banana.jpg" alt="Yellow Bananas" />
+        <h4>Yellow Bananas</h4>
+        <p>UGX 2,500 /bunch</p>
+      </div>
+      <div class="product-card">
+        <img src="assets/pineapple.jpg" alt="Sugarloaf Pineapples" />
+        <h4>Sugarloaf Pineapples</h4>
+        <p>UGX 4,000 each</p>
+      </div>
+    </div>
+    <div class="text-center">
+      <a href="products.html" class="btn-secondary">View Full Catalog</a>
     </div>
   </section>
 
+  <!-- Testimonials Section -->
+  <section class="testimonial-section">
+    <h2 class="section-title">Why Ugandans Love MollaStore ❤️</h2>
+    <div class="container testimonials">
+      <div class="testimonial-card">
+        <img src="assets/alvin.jpg" alt="Customer Gloria" class="testimonial-img"/>
+        <p>"Amazing freshness and delivery. I buy all my fruits here now!"</p>
+        <span>— Alvin K.</span>
+      </div>
+      <div class="testimonial-card">
+        <img src="assets/brian.jpg" alt="Customer Brian" class="testimonial-img"/>
+        <p>"Fastest delivery and very kind support. Highly recommended!"</p>
+        <span>— Brian K.</span>
+      </div>
+      <div class="testimonial-card">
+        <img src="assets/sarah.jpg" alt="Customer Sarah" class="testimonial-img"/>
+        <p>"Affordable, clean packaging, and sweet fruits. Love it!"</p>
+        <span>— Sarah M.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 MollaStore. All rights reserved.</p>
+    <div class="container footer-content">
+      <p>&copy; 2025 MollaStore. Built with ❤️ in Uganda.</p>
+      <small>Follow us on Instagram | Facebook | Twitter</small>
+    </div>
   </footer>
 </body>
 </html>

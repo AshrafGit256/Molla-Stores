@@ -1,121 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Checkout — MollaStore</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="main.css"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout — MollaStore</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="checkout.css" />
 </head>
 <body>
-
-  <header>
-    <div class="container nav-bar">
-      <h1 class="logo-text">MollaStores</h1>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="products.html" class="active">Fruits</a>
-        <a href="cart.html">Cart</a>
-        <a href="about.html">About</a>
-
-      </nav>
-    </div>
-  </header>
-  
-
-
-  <section class="checkout">
-    <h1>Secure Checkout</h1>
-    <div class="checkout-container">
-
-      <form class="checkout-form">
-        <h2>Billing & Shipping Information</h2>
-
-        <div class="form-group">
-          <label for="fullname">Full Name *</label>
-          <input type="text" id="fullname" placeholder="John Doe" required>
+    <header>
+        <div class="container nav-bar">
+            <h1 class="logo-text">MollaStore</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="products.html">Fruits</a>
+                <a href="cart.html">Cart</a>
+                <a href="checkout.html" class="active">Checkout</a>
+            </nav>
         </div>
+    </header>
 
-        <div class="form-group">
-          <label for="email">Email Address *</label>
-          <input type="email" id="email" placeholder="example@mail.com" required>
+    <section class="checkout-section">
+        <h1>Checkout 🛍️</h1>
+        <div class="container" style="display: flex; flex-wrap: wrap; gap: 2rem; margin-left: 2px;">
+            <!-- Billing Form -->
+            <div class="checkout-form" style="flex: 2;">
+                <h2>Billing Information</h2>
+                <form id="checkout-form">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="text" id="phone" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Shipping Address</label>
+                        <textarea id="address" rows="3" required></textarea>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Cart Summary -->
+            <div class="checkout-summary" style="flex: 1;">
+                <h2>Your Order</h2>
+                <table class="cart-table" id="order-summary">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Qty</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Order items will be dynamically inserted -->
+                    </tbody>
+                </table>
+                <div class="checkout-total">
+                    <h3>Total: UGX <span id="checkout-total">0</span></h3>
+                </div>
+                <button type="submit" form="checkout-form" class="btn-checkout" id="place-order-btn">
+                    Place Order
+                </button>
+            </div>
         </div>
+    </section>
 
-        <div class="form-group">
-          <label for="address">Shipping Address *</label>
-          <input type="text" id="address" placeholder="Kampala, Uganda" required>
-        </div>
+    <footer>
+        <p>&copy; 2025 MollaStore. All rights reserved.</p>
+    </footer>
 
-        <div class="form-group">
-          <label for="city">City *</label>
-          <input type="text" id="city" placeholder="Kampala" required>
-        </div>
+    <script>
+        window.addEventListener("load", () => {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const orderSummary = document.getElementById("order-summary").getElementsByTagName("tbody")[0];
+            const checkoutTotal = document.getElementById("checkout-total");
 
-        <div class="form-group">
-          <label for="phone">Phone Number *</label>
-          <input type="tel" id="phone" placeholder="+256..." required>
-        </div>
+            let total = 0;
 
-        <h2>Payment Method</h2>
-        <div class="form-group">
-          <select required>
-            <option value="">-- Select Payment Option --</option>
-            <option value="mobile">Mobile Money (MTN / Airtel)</option>
-            <option value="cash">Cash on Delivery</option>
-            <option value="card">Credit / Debit Card</option>
-          </select>
-        </div>
+            cart.forEach(item => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>${item.quantity}</td>
+                    <td>UGX ${item.price * item.quantity}</td>
+                `;
+                orderSummary.appendChild(row);
+                total += item.price * item.quantity;
+            });
 
-        <div class="form-group">
-          <label for="note">Additional Notes</label>
-          <textarea id="note" placeholder="Any special instructions?" rows="4"></textarea>
-        </div>
+            checkoutTotal.textContent = total;
 
-        <button type="submit" class="btn-checkout">Confirm & Place Order</button>
-      </form>
+            // Handle place order
+            document.getElementById("place-order-btn").addEventListener("click", (e) => {
+                e.preventDefault();
 
-      <div class="order-summary">
-        <h2>Order Summary</h2>
+                const fullName = document.getElementById("fullName").value.trim();
+                const email = document.getElementById("email").value.trim();
+                const phone = document.getElementById("phone").value.trim();
+                const address = document.getElementById("address").value.trim();
 
-        <div class="summary-item">
-          <p>🍇 Red Grapes (2kg)</p>
-          <span>UGX 16,000</span>
-        </div>
+                if (!fullName || !email || !phone || !address) {
+                    alert("Please fill in all billing details.");
+                    return;
+                }
 
-        <div class="summary-item">
-          <p>🫐 Blueberries (1 box)</p>
-          <span>UGX 15,000</span>
-        </div>
+                // Clear cart after placing order
+                localStorage.removeItem("cart");
 
-        <div class="summary-item">
-          <p>🍊 Organic Oranges (3kg)</p>
-          <span>UGX 9,000</span>
-        </div>
+                alert("Order placed successfully! Thank you for shopping with MollaStore!");
 
-        <hr>
-
-        <div class="summary-discount">
-          <p>Promo Discount</p>
-          <span>- UGX 3,000</span>
-        </div>
-
-        <div class="summary-total">
-          <strong>Grand Total:</strong>
-          <strong>UGX 37,000</strong>
-        </div>
-
-        <div class="secure-payment">
-          <img src="assets/secure.png" alt="Secure Checkout">
-          <p>100% secure payment processing</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 MollaStore. All rights reserved.</p>
-  </footer>
-
+                // Redirect to home or order success page (optional)
+                window.location.href = "index.html";
+            });
+        });
+    </script>
 </body>
 </html>

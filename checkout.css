@@ -1,0 +1,238 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    padding: 0 10px; /* Added padding for small screens */
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+}
+
+ /* Header */
+ header {
+    background: white;
+    padding: 1.5rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  
+  .nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo-text {
+    font-family: 'Lobster', cursive;
+    font-size: 2rem;
+    color: #ff6f61;
+  }
+  
+  nav a {
+    margin-left: 2rem;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  nav a.active,
+  nav a:hover {
+    color: #ff6f61;
+  }
+
+/* Cart Section and Checkout Section */
+.checkout-section {
+    padding: 2rem 0;
+    width: 90%;
+    margin: auto;
+    overflow-x: auto; /* Added for responsive tables */
+}
+
+.checkout-section h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: #0d6efd;
+}
+
+/* Checkout Container */
+.checkout-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+    padding: 2rem 0;
+}
+
+/* Checkout Form and Summary */
+.checkout-form,
+.checkout-summary {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+}
+
+.checkout-form:hover,
+.checkout-summary:hover {
+    transform: translateY(-3px);
+}
+
+.checkout-form {
+    flex: 1 1 60%;
+    min-width: 280px;
+}
+
+.checkout-summary {
+    flex: 1 1 35%;
+    min-width: 250px;
+}
+
+/* Checkout Form */
+.checkout-form h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #0d6efd;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* Cart Summary Table */
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.cart-table th,
+.cart-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 0.95rem;
+}
+
+.cart-table th {
+    background-color: #e9ecef;
+    color: #333;
+}
+
+.cart-table td {
+    font-weight: 500;
+    color: #555;
+}
+
+/* Checkout Total */
+.checkout-total h3 {
+    text-align: right;
+    font-size: 1.4rem;
+    color: #28a745;
+    border-top: 1px solid #ddd;
+    padding-top: 1rem;
+}
+
+/* Buttons */
+.btn-checkout {
+    background-color: #28a745;
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 12px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.btn-checkout:hover {
+    background-color: #218838;
+}
+
+.btn-remove {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-remove:hover {
+    background-color: #bb2d3b;
+}
+
+/* Footer */
+footer {
+    background-color: #31373f;
+    color: white;
+    text-align: center;
+    padding: 1.2rem 0;
+    font-size: 0.95rem;
+    margin-top: 3rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .checkout-container {
+        flex-direction: column;
+    }
+
+    .checkout-form,
+    .checkout-summary {
+        flex: 1 1 100%;
+        min-width: 100%;
+    }
+
+    .btn-checkout {
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+
+    .cart-section,
+    .checkout-section {
+        padding: 1rem 0;
+    }
+}
+

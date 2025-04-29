@@ -1,124 +1,354 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fruits — MollaStore</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="main.css"/>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fruits — MollaStore</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="products.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="main.js" defer></script>
+  </head>
 
-  <header>
-    <div class="container nav-bar">
-      <h1 class="logo-text">MollaStores</h1>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="products.html" class="active">Fruits</a>
-        <a href="cart.html">Cart</a>
-        <a href="about.html">About</a>
-
-      </nav>
-    </div>
-  </header>
-
-  <section class="products">
-    <h1>Fresh Fruits for You 🍓</h1>
-
-    <div class="filters">
-      <a href="products.html" class="filter active">All</a>
-      <a href="citrus.html" class="filter">Citrus</a>
-      <a href="berries.html" class="filter">Berries</a>
-      <a href="tropical.html" class="filter">Tropical</a>
-      <a href="organic.html" class="filter">Organic</a>
+  <body>
+    <div id="loader">
+      <div class="spinner"></div>
     </div>
 
-    <div class="product-grid">
-      <!-- Repeat this block for multiple products -->
-      <div class="product-card">
-        <img src="assets/mangoes.jpg" alt="Mango">
-        <div class="badge">NEW</div>
-        <h3>Sweet Mangoes</h3>
-        <p class="price">UGX 7,000 /kg</p>
-        <p class="category">Category: Tropical</p>
-        <p class="description">Freshly picked, juicy and naturally ripened mangoes.</p>
-        <p class="stock in">In Stock: 32kg</p>
-        <div class="stock-bar"><div style="width: 80%"></div></div>
-        <button class="btn-cart">Add to Cart</button>
+    <header>
+      <div class="container nav-bar">
+        <h1 class="logo-text">MollaStore</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="products.html" class="active">Fruits</a>
+          <a href="cart.html">Cart</a>
+          <a href="about.html">About</a>
+        </nav>
       </div>
+    </header>
 
-      <div class="product-card">
-        <img src="assets/img1.jpg" alt="Oranges">
-        <div class="badge hot">HOT</div>
-        <h3>Juicy Oranges</h3>
-        <p class="price"><del>UGX 5,000</del> UGX 4,500 /kg</p>
-        <p class="category">Category: Citrus</p>
-        <p class="description">Rich in Vitamin C. Great for juice and snacks.</p>
-        <p class="stock in">In Stock: 20kg</p>
-        <div class="stock-bar"><div style="width: 60%"></div></div>
-        <button class="btn-cart">Add to Cart</button>
-      </div>
-
-      <div class="product-card">
-        <img src="assets/blackberries.jpg" alt="Strawberries">
-        <div class="badge organic">Organic</div>
-        <h3>Fresh Strawberries</h3>
-        <p class="price">UGX 10,000 /box</p>
-        <p class="category">Category: Berries</p>
-        <p class="description">Sweet organic strawberries. No chemicals added.</p>
-        <p class="stock out">Out of Stock</p>
-        <div class="stock-bar"><div style="width: 0%"></div></div>
-        <button class="btn-cart disabled" disabled>Out of Stock</button>
-      </div>
-
-      <!-- Additional products -->
-      <div class="product-card">
-        <img src="assets/img3.jpg" alt="Bananas">
-        <h3>Ripe Bananas</h3>
-        <p class="price">UGX 3,500 /kg</p>
-        <p class="category">Category: Tropical</p>
-        <p class="description">Perfect for snacks, baking, or smoothies.</p>
-        <p class="stock in">In Stock: 50kg</p>
-        <div class="stock-bar"><div style="width: 90%"></div></div>
-        <button class="btn-cart">Add to Cart</button>
-      </div>
-
-      <div class="product-card">
-        <img src="assets/grapes.jpg" alt="Grapes">
-        <h3>Red Grapes</h3>
-        <p class="price">UGX 8,000 /kg</p>
-        <p class="category">Category: Berries</p>
-        <p class="description">Crisp and juicy grapes. Great for dessert.</p>
-        <p class="stock in">In Stock: 18kg</p>
-        <div class="stock-bar"><div style="width: 45%"></div></div>
-        <button class="btn-cart">Add to Cart</button>
-      </div>
-
-      <div class="product-card">
-        <img src="assets/pineapple.jpg" alt="Pineapple">
-        <h3>Sweet Pineapple</h3>
-        <p class="price">UGX 6,000 /each</p>
-        <p class="category">Category: Tropical</p>
-        <p class="description">Zesty and juicy pineapple. Locally grown.</p>
-        <p class="stock in">In Stock: 25 pcs</p>
-        <div class="stock-bar"><div style="width: 70%"></div></div>
-        <button class="btn-cart">Add to Cart</button>
-      </div>
+    <div id="confirmation-message" class="confirmation-message">
+      <p>Product added to cart successfully!</p>
+      <button id="closeMessage" class="close-message">Close</button>
     </div>
-  </section>
 
-  <section class="recommend">
-    <h2>You May Also Like</h2>
-    <div class="recommend-grid">
-      <img src="assets/img7.jpg" alt="Apples">
-      <img src="assets/img8.jpg" alt="Avocados">
-      <img src="assets/img9.jpg" alt="Lemons">
-    </div>
-  </section>
+    <section class="search-sort-bar">
+      <div class="container">
+        <input
+          type="text"
+          id="searchInput"
+          class="search-input"
+          placeholder="Search products..."
+        />
+        <select id="sortSelect" class="sort-select">
+          <option value="">Sort By</option>
+          <option value="name-asc">Name A-Z</option>
+          <option value="name-desc">Name Z-A</option>
+        </select>
+      </div>
+    </section>
 
-  <footer>
-    <p>&copy; 2025 MollaStore. All rights reserved.</p>
-  </footer>
+    <section class="products">
+      <h1>Fresh Fruits for You 🍓</h1>
 
-</body>
+      <div class="filters">
+        <a href="products.html" class="filter active">All</a>
+        <a href="citrus.html" class="filter">Citrus</a>
+        <a href="berries.html" class="filter">Berries</a>
+        <a href="tropical.html" class="filter">Tropical</a>
+        <a href="organic.html" class="filter">Organic</a>
+      </div>
+
+      <div class="product-grid">
+        <!-- Product 1 -->
+        <div class="product-card" data-aos="fade-up">
+          <img src="assets/mangoes.jpg" alt="Mango" />
+          <div class="badge">NEW</div>
+          <h3>Sweet Mangoes</h3>
+          <p class="price">UGX 7,000 <span>/kg</span></p>
+          <p class="category">Category: Tropical</p>
+          <p class="description">
+            Freshly picked, juicy and naturally ripened mangoes.
+          </p>
+          <p class="stock in">In Stock: 32kg</p>
+          <div class="stock-bar"><div style="width: 80%"></div></div>
+          <button
+            class="btn-cart"
+            data-name="Sweet Mangoes"
+            data-price="7000"
+            data-img="assets/mangoes.jpg"
+          >
+            Add to Cart
+          </button>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card" data-aos="fade-up">
+          <img src="assets/apples.jpg" alt="Apple" />
+          <div class="badge">SALE</div>
+          <h3>Red Apples</h3>
+          <p class="price">UGX 5,500 <span>/kg</span></p>
+          <p class="category">Category: Organic</p>
+          <p class="description">
+            Fresh, sweet, and crispy red apples perfect for a snack.
+          </p>
+          <p class="stock in">In Stock: 50kg</p>
+          <div class="stock-bar"><div style="width: 90%"></div></div>
+          <button
+            class="btn-cart"
+            data-name="Red Apples"
+            data-price="5500"
+            data-img="assets/apple.jpg"
+          >
+            Add to Cart
+          </button>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card" data-aos="fade-up">
+          <img src="assets/oranges.jpg" alt="Orange" />
+          <h3>Juicy Oranges</h3>
+          <p class="price">UGX 4,500 <span>/kg</span></p>
+          <p class="category">Category: Citrus</p>
+          <p class="description">
+            Freshly squeezed oranges, great for juice or snacking.
+          </p>
+          <p class="stock in">In Stock: 20kg</p>
+          <div class="stock-bar"><div style="width: 70%"></div></div>
+          <button
+            class="btn-cart"
+            data-name="Juicy Oranges"
+            data-price="4500"
+            data-img="assets/orange.jpg"
+          >
+            Add to Cart
+          </button>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card" data-aos="fade-up">
+          <img src="assets/banana.jpg" alt="Banana" />
+          <h3>Ripe Bananas</h3>
+          <p class="price">UGX 3,000 <span>/kg</span></p>
+          <p class="category">Category: Tropical</p>
+          <p class="description">Fresh, ripe bananas with natural sweetness.</p>
+          <p class="stock in">In Stock: 40kg</p>
+          <div class="stock-bar"><div style="width: 85%"></div></div>
+          <button
+            class="btn-cart"
+            data-name="Ripe Bananas"
+            data-price="3000"
+            data-img="assets/banana.jpg"
+          >
+            Add to Cart
+          </button>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card" data-aos="fade-up">
+          <img src="assets/strawberries.jpg" alt="Strawberries" />
+          <div class="badge">NEW</div>
+          <h3>Fresh Strawberries</h3>
+          <p class="price">UGX 6,000 <span>/kg</span></p>
+          <p class="category">Category: Berries</p>
+          <p class="description">
+            Sweet and juicy strawberries, perfect for desserts.
+          </p>
+          <p class="stock in">In Stock: 15kg</p>
+          <div class="stock-bar"><div style="width: 60%"></div></div>
+          <button
+            class="btn-cart"
+            data-name="Fresh Strawberries"
+            data-price="6000"
+            data-img="assets/strawberries.jpg"
+          >
+            Add to Cart
+          </button>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card" data-aos="fade-up">
+          <img src="assets/kiwi.jpg" alt="Kiwi" />
+          <h3>Sweet Kiwi</h3>
+          <p class="price">UGX 8,000 <span>/kg</span></p>
+          <p class="category">Category: Exotic</p>
+          <p class="description">
+            Tangy and sweet kiwis packed with vitamin C.
+          </p>
+          <p class="stock in">In Stock: 25kg</p>
+          <div class="stock-bar"><div style="width: 80%"></div></div>
+          <button
+            class="btn-cart"
+            data-name="Sweet Kiwi"
+            data-price="8000"
+            data-img="assets/kiwi.jpg"
+          >
+            Add to Cart
+          </button>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="product-card" data-aos="fade-up">
+          <img src="assets/grapes.jpg" alt="Grapes" />
+          <div class="badge">SALE</div>
+          <h3>Fresh Grapes</h3>
+          <p class="price">UGX 9,000 <span>/kg</span></p>
+          <p class="category">Category: Berries</p>
+          <p class="description">
+            Freshly harvested grapes perfect for snacking.
+          </p>
+          <p class="stock in">In Stock: 60kg</p>
+          <div class="stock-bar"><div style="width: 95%"></div></div>
+          <button
+            class="btn-cart"
+            data-name="Fresh Grapes"
+            data-price="9000"
+            data-img="assets/grapes.jpg"
+          >
+            Add to Cart
+          </button>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="product-card" data-aos="fade-up">
+          <img src="assets/pineapple.jpg" alt="Pineapple" />
+          <h3>Sweet Pineapple</h3>
+          <p class="price">UGX 4,000 <span>/kg</span></p>
+          <p class="category">Category: Tropical</p>
+          <p class="description">
+            Fresh pineapples, perfect for a refreshing snack.
+          </p>
+          <p class="stock in">In Stock: 30kg</p>
+          <div class="stock-bar"><div style="width: 85%"></div></div>
+          <button
+            class="btn-cart"
+            data-name="Sweet Pineapple"
+            data-price="4000"
+            data-img="assets/pineapple.jpg"
+          >
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="pagination">
+        <a href="#" class="page active">1</a>
+        <a href="#" class="page">2</a>
+        <a href="#" class="page">3</a>
+        <a href="#" class="page">Next &raquo;</a>
+      </div>
+    </section>
+
+    <section class="recommend">
+      <h2>You May Also Like</h2>
+      <div class="recommend-grid">
+        <img src="assets/img7.jpg" alt="Apples" />
+        <img src="assets/img8.jpg" alt="Avocados" />
+        <img src="assets/img9.jpg" alt="Lemons" />
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <div class="container">
+        <h2>Stay Updated!</h2>
+        <p>Get fresh deals and updates directly to your inbox.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email" required />
+          <button type="submit" class="btn-subscribe">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="trust-badges">
+      <div class="container badges-grid">
+        <div class="badge-item">
+          <img src="assets/organic.png" alt="Organic" />
+          <p>100% Organic</p>
+        </div>
+        <div class="badge-item">
+          <img src="assets/shipping.png" alt="Fast Delivery" />
+          <p>Fast Delivery</p>
+        </div>
+        <div class="badge-item">
+          <img src="assets/payments.png" alt="Secure Payment" />
+          <p>Secure Payment</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <h3>MollaStore</h3>
+          <p>Freshness you can trust.</p>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p>Phone: +256 700 123 456</p>
+          <p>Email: support@mollastore.ug</p>
+        </div>
+        <div>
+          <h4>Follow Us</h4>
+          <p>Instagram | Facebook | Twitter</p>
+        </div>
+      </div>
+      <p class="copyright">&copy; 2025 MollaStore. All rights reserved.</p>
+    </footer>
+
+    <script>
+      window.addEventListener("load", () => {
+        document.body.classList.add("loaded");
+      });
+
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+
+      const buttons = document.querySelectorAll(".btn-cart");
+
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", function (e) {
+          const productName = this.getAttribute("data-name");
+          const productPrice = this.getAttribute("data-price");
+          const productImage = this.getAttribute("data-img");
+
+          // Get current cart from localStorage
+          let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+          // Create product object
+          const product = {
+            name: productName,
+            price: productPrice,
+            image: productImage,
+            quantity: 1, // default quantity of 1
+          };
+
+          // Add the product to the cart
+          cart.push(product);
+
+          // Save updated cart to localStorage
+          localStorage.setItem("cart", JSON.stringify(cart));
+
+          // Feedback effect on button click (ripple effect)
+          const circle = document.createElement("span");
+          circle.classList.add("ripple");
+          this.appendChild(circle);
+          const d = Math.max(this.clientWidth, this.clientHeight);
+          circle.style.width = circle.style.height = `${d}px`;
+          circle.style.left = `${
+            e.clientX - this.getBoundingClientRect().left - d / 2
+          }px`;
+          circle.style.top = `${
+            e.clientY - this.getBoundingClientRect().top - d / 2
+          }px`;
+          setTimeout(() => circle.remove(), 600);
+        });
+      });
+    </script>
+  </body>
 </html>

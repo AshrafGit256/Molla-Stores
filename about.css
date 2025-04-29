@@ -1,0 +1,397 @@
+/* General Reset and Body Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #f9f9f9;
+}
+
+ /* Header */
+ header {
+  background: white;
+  padding: 1.5rem 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-text {
+  font-family: 'Lobster', cursive;
+  font-size: 2rem;
+  color: #ff6f61;
+}
+
+nav a {
+  margin-left: 2rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a.active,
+nav a:hover {
+  color: #ff6f61;
+}
+
+/* Hero Section */
+.hero-section {
+  background: url('assets/mellon.jpg') no-repeat center center/cover;
+  color: #fff;
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+/* Mission & Vision Section */
+.mission-vision {
+  background-color: #fff;
+  padding: 4rem 2rem;
+}
+
+.mission-vision h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.mission-vision-content {
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mission, .vision {
+  background-color: #ecf0f1;
+  padding: 2rem;
+  border-radius: 8px;
+  flex: 1;
+}
+
+.mission h3, .vision h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.mission p, .vision p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Team Section */
+.team {
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+}
+
+.team h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.team-members {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.team-member {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.team-member img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.team-member h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.team-member p {
+  font-size: 1rem;
+  color: #7f8c8d;
+}
+
+/* Our Journey Section */
+.our-journey {
+  padding: 4rem 2rem;
+  background-color: #fff;
+}
+
+.our-journey h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.timeline {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.timeline-item {
+  background-color: #ecf0f1;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+}
+
+.timeline-item h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #2C3E50;
+  margin-bottom: 1rem;
+}
+
+.timeline-item p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Testimonials Section */
+.testimonials {
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+}
+
+.testimonials h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.testimonial-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.testimonial-card p {
+  font-size: 1rem;
+  font-style: italic;
+  color: #7f8c8d;
+  margin-bottom: 1rem;
+}
+
+.testimonial-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2C3E50;
+}
+
+/* Call to Action Section */
+.call-to-action {
+  background-color: #2C3E50;
+  color: #fff;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.call-to-action h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.call-to-action p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn-main {
+  background-color: #3498db;
+  color: #fff;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-main:hover {
+  background-color: #2980b9;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #343d46;
+  color: #fff;
+  padding: 3rem 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+footer h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+footer p, footer a {
+  font-size: 1rem;
+  color: #ecf0f1;
+  margin-bottom: 0.5rem;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer form input {
+  padding: 0.8rem;
+  width: 70%;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  margin-right: 1rem;
+}
+
+footer form button {
+  padding: 0.8rem 1.5rem;
+  background-color: #3498db;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+footer form button:hover {
+  background-color: #2980b9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .team-members {
+      grid-template-columns: 1fr 1fr;
+  }
+
+  .testimonial-cards {
+      grid-template-columns: 1fr 1fr;
+  }
+
+  header nav {
+      float: none;
+      text-align: center;
+      margin-top: 10px;
+  }
+
+  header nav a {
+      margin: 0 10px;
+  }
+
+  .mission-vision-content {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .mission, .vision {
+      flex: none;
+      width: 80%;
+      margin-bottom: 20px;
+  }
+
+  .hero-section h1 {
+      font-size: 1.5rem;
+  }
+
+  .hero-section p {
+      font-size: 1rem;
+  }
+
+  .team-member {
+      max-width: 100%;
+  }
+
+  .timeline-item h3 {
+      font-size: 1.2rem;
+  }
+
+  .timeline-item p {
+      font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-members {
+      grid-template-columns: 1fr;
+  }
+
+  .testimonial-cards {
+      grid-template-columns: 1fr;
+  }
+
+  footer .footer-grid {
+      grid-template-columns: 1fr;
+  }
+
+  header .logo-text {
+      font-size: 20px;
+  }
+
+  header nav a {
+      font-size: 0.9rem;
+  }
+
+  .team-member {
+      max-width: 100%;
+  }
+}

@@ -1,162 +1,116 @@
-// Wait for DOM to load
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const searchInput = document.getElementById('searchInput');
   const sortSelect = document.getElementById('sortSelect');
   const productCards = document.querySelectorAll('.product-card');
   const productGrid = document.querySelector('.product-grid');
-  const confirmationMessage = document.createElement('div');
-  
-  // Add confirmation message styling
-  confirmationMessage.style.position = 'fixed';
-  confirmationMessage.style.bottom = '20px';
-  confirmationMessage.style.left = '20px';
-  confirmationMessage.style.padding = '10px 20px';
-  confirmationMessage.style.backgroundColor = 'green';
-  confirmationMessage.style.color = 'white';
-  confirmationMessage.style.borderRadius = '5px';
-  confirmationMessage.style.display = 'none';  // Hidden by default
-  
-  document.body.appendChild(confirmationMessage);
+  const actionButtons = document.querySelectorAll('.add-to-cart'); // Added
+  const confirmationPopup = document.createElement('div'); // Renamed to avoid conflict
 
-  // Function to show the confirmation message
+  // Add green confirmation styling (used for filter/sort only)
+  confirmationPopup.style.position = 'fixed';
+  confirmationPopup.style.bottom = '20px';
+  confirmationPopup.style.left = '20px';
+  confirmationPopup.style.padding = '10px 20px';
+  confirmationPopup.style.backgroundColor = 'green';
+  confirmationPopup.style.color = 'white';
+  confirmationPopup.style.borderRadius = '5px';
+  confirmationPopup.style.display = 'none';
+  document.body.appendChild(confirmationPopup);
+
   function showConfirmation(message) {
-    confirmationMessage.textContent = message;
-    confirmationMessage.style.display = 'block';
-    
-    // Hide the message after 2 seconds
+    confirmationPopup.textContent = message;
+    confirmationPopup.style.display = 'block';
     setTimeout(() => {
-      confirmationMessage.style.display = 'none';
+      confirmationPopup.style.display = 'none';
     }, 2000);
   }
 
-  // Function to filter products based on search
   function filterProducts() {
     const query = searchInput.value.toLowerCase();
-  
     productCards.forEach(card => {
       const name = card.querySelector('h3').innerText.toLowerCase();
       const category = card.querySelector('.category').innerText.toLowerCase();
-  
-      // Check if the product name or category includes the query
+
       if (name.includes(query) || category.includes(query)) {
-        card.style.display = 'block';  // Show the card
-        card.classList.add('small-card'); // Ensure it shows as a small card
+        card.style.display = 'block';
+        card.classList.add('small-card');
       } else {
-        card.style.display = 'none';  // Hide the card if it doesn't match
+        card.style.display = 'none';
       }
     });
 
-    // Re-apply sorting after filtering
-    sortProducts();
+    sortProducts(); // Maintain sort order even after filtering
     showConfirmation('Products filtered successfully!');
   }
-  
-  // Function to sort products
+
   function sortProducts() {
     const sortBy = sortSelect.value;
-    const cards = Array.from(productCards).filter(card => card.style.display !== 'none'); // Only sorted cards that are visible
-
-    let sortedCards;
+    const visibleCards = Array.from(productCards).filter(card => card.style.display !== 'none');
+    let sortedCards = visibleCards;
 
     if (sortBy === 'name-asc') {
-      sortedCards = cards.sort((a, b) => {
-        const nameA = a.querySelector('h3').innerText.toLowerCase();
-        const nameB = b.querySelector('h3').innerText.toLowerCase();
-        return nameA.localeCompare(nameB);
-      });
+      sortedCards.sort((a, b) => a.querySelector('h3').innerText.localeCompare(b.querySelector('h3').innerText));
     } else if (sortBy === 'name-desc') {
-      sortedCards = cards.sort((a, b) => {
-        const nameA = a.querySelector('h3').innerText.toLowerCase();
-        const nameB = b.querySelector('h3').innerText.toLowerCase();
-        return nameB.localeCompare(nameA);
-      });
+      sortedCards.sort((a, b) => b.querySelector('h3').innerText.localeCompare(a.querySelector('h3').innerText));
     } else if (sortBy === 'price-asc') {
-      sortedCards = cards.sort((a, b) => {
-        const priceA = parseFloat(a.querySelector('.price').innerText.replace('$', ''));
-        const priceB = parseFloat(b.querySelector('.price').innerText.replace('$', ''));
-        return priceA - priceB;
-      });
+      sortedCards.sort((a, b) => parseFloat(a.querySelector('.price').innerText.replace('$', '')) - parseFloat(b.querySelector('.price').innerText.replace('$', '')));
     } else if (sortBy === 'price-desc') {
-      sortedCards = cards.sort((a, b) => {
-        const priceA = parseFloat(a.querySelector('.price').innerText.replace('$', ''));
-        const priceB = parseFloat(b.querySelector('.price').innerText.replace('$', ''));
-        return priceB - priceA;
-      });
-    } else {
-      sortedCards = cards;
+      sortedCards.sort((a, b) => parseFloat(b.querySelector('.price').innerText.replace('$', '')) - parseFloat(a.querySelector('.price').innerText.replace('$', '')));
     }
 
-    // Clear and re-append sorted cards
     productGrid.innerHTML = '';
-    sortedCards.forEach(card => {
-      productGrid.appendChild(card);
-    });
-
-    // Show confirmation message after sorting
+    sortedCards.forEach(card => productGrid.appendChild(card));
     showConfirmation('Products sorted successfully!');
   }
-  
-  // Events
+
   searchInput.addEventListener('input', filterProducts);
   sortSelect.addEventListener('change', sortProducts);
-});
 
+  // ✅ Add-to-cart logic
+  actionButtons.forEach((btn) => {
+    btn.addEventListener("click", function (e) {
+      const productName = this.getAttribute("data-name");
+      const productPrice = this.getAttribute("data-price");
+      const productImage = this.getAttribute("data-img");
 
-// Show confirmation message after adding an item to the cart
-buttons.forEach((btn) => {
-  btn.addEventListener("click", function (e) {
-    const productName = this.getAttribute("data-name");
-    const productPrice = this.getAttribute("data-price");
-    const productImage = this.getAttribute("data-img");
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    // Get current cart from localStorage
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const product = {
+        name: productName,
+        price: productPrice,
+        image: productImage,
+        quantity: 1,
+      };
 
-    // Create product object
-    const product = {
-      name: productName,
-      price: productPrice,
-      image: productImage,
-      quantity: 1, // default quantity of 1
-    };
+      cart.push(product);
+      localStorage.setItem("cart", JSON.stringify(cart));
 
-    // Add the product to the cart
-    cart.push(product);
+      // Cart-specific confirmation message
+      const cartMessage = document.getElementById("confirmation-message");
+      cartMessage.style.display = "block";
 
-    // Save updated cart to localStorage
-    localStorage.setItem("cart", JSON.stringify(cart));
+      // Ripple effect
+      const circle = document.createElement("span");
+      circle.classList.add("ripple");
+      this.appendChild(circle);
+      const d = Math.max(this.clientWidth, this.clientHeight);
+      circle.style.width = circle.style.height = `${d}px`;
+      circle.style.left = `${e.clientX - this.getBoundingClientRect().left - d / 2}px`;
+      circle.style.top = `${e.clientY - this.getBoundingClientRect().top - d / 2}px`;
+      setTimeout(() => circle.remove(), 600);
 
-    // Display confirmation message
-    const confirmationMessage = document.getElementById("confirmation-message");
-    confirmationMessage.style.display = "block"; // Show the message
-
-    // Feedback effect on button click (ripple effect)
-    const circle = document.createElement("span");
-    circle.classList.add("ripple");
-    this.appendChild(circle);
-    const d = Math.max(this.clientWidth, this.clientHeight);
-    circle.style.width = circle.style.height = `${d}px`;
-    circle.style.left = `${
-      e.clientX - this.getBoundingClientRect().left - d / 2
-    }px`;
-    circle.style.top = `${
-      e.clientY - this.getBoundingClientRect().top - d / 2
-    }px`;
-    setTimeout(() => circle.remove(), 600);
-
-    // Auto-hide confirmation message after 3 seconds
-    setTimeout(() => {
-      confirmationMessage.style.display = "none";
-    }, 3000);
+      setTimeout(() => {
+        cartMessage.style.display = "none";
+      }, 3000);
+    });
   });
+
+  // Close cart message
+  const closeMessageButton = document.getElementById("closeMessage");
+  if (closeMessageButton) {
+    closeMessageButton.addEventListener("click", () => {
+      const cartMessage = document.getElementById("confirmation-message");
+      cartMessage.style.display = "none";
+    });
+  }
 });
-
-// Close confirmation message when clicking "Close" button
-const closeMessageButton = document.getElementById("closeMessage");
-if (closeMessageButton) {
-  closeMessageButton.addEventListener("click", () => {
-    const confirmationMessage = document.getElementById("confirmation-message");
-    confirmationMessage.style.display = "none"; // Hide the message
-  });
-}
-
